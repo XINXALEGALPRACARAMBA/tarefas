@@ -43,10 +43,10 @@ const Number_alunos0 = [1, 2, 3, 4,
 const novaListaDeChamada = [];
 for (let i = 0; i < Name_alunos0.length; i++) {
     if (Number_alunos0[i] !== 34) {
-        novaListaDeChamada.push({ numero: Number_alunos0[i], nome: Name_alunos0[i] });
+        novaListaDeChamada.push({ numero: Number_alunos0[i], nome: Name_alunos0[i].split(' ').slice(0,2).join(' ') });
     } else {
         novaListaDeChamada.push({ numero: 29, nome: "RICHARD CARRARO" });
     }
 }
 
-console.log(novaListaDeChamada);
+novaListaDeChamada.forEach(aluno => console.log(`${aluno.numero}: ${aluno.nome}`))
