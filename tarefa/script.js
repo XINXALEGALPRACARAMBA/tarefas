@@ -1,3 +1,10 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 const Name_alunos0 = ["ANA CAROLINA PONTAROLO CARVALHO", 
     "ANA HELOISE MONTEIRO DA SILVA", 
     "ANA LUIZA DA SILVA NOGUEIRA", 
@@ -83,12 +90,13 @@ const listaDeAlunosENumeros = [Name_alunos0, Number_alunos0];
 const listaDeAlunosENumeros1 = [Name_alunos, Number_alunos];
 
 
-const escolhaLista = 1; //variavel 0 = lista com pessoa aleatoria, variavel 1 = lista with me 
+rl.question('Qual lista de alunos você deseja visualizar? Digite 0 para a primeira lista ou 1 para a segunda lista: ', (escolhaLista) => {
+    const listaSelecionada = escolhaLista === '0' ? listaDeAlunosENumeros : listaDeAlunosENumeros1;
 
+    for (let i = 0; i < listaSelecionada[0].length; i++) {
+        console.log(`Nome: ${listaSelecionada[0][i]} Número: ${listaSelecionada[1][i]}.`);
+    }
 
-const listaSelecionada = escolhaLista === 0 ? listaDeAlunosENumeros : listaDeAlunosENumeros1;
+    rl.close();
+});
 
-//essa aqui eu amassei
-for (let i = 0; i < listaSelecionada[0].length; i++) {
-console.log(`Nome: ${listaSelecionada[0][i]} Número: ${listaSelecionada[1][i]}.`);
-}
